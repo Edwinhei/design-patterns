@@ -1,0 +1,26 @@
+# Java 编译产物
+*.class
+*.jar
+*.war
+target/
+build/
+out/
+bin/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.eclipse/
+.settings/
+.project
+.classpath
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# 日志
+*.log
