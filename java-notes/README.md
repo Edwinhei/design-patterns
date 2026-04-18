@@ -40,6 +40,7 @@
 | 14 | [equals 与 hashCode](./14-equals与hashCode.md) | Record 讨论衍生 · 对象相等性契约 | ★★ |
 | 15 | [Java 注解体系完全指南](./15-Java注解体系完全指南.md) | 从 @Override / @With / @Autowired 的好奇心 | ★★★ |
 | 16 | [注解/装饰器跨语言辨析](./16-注解与装饰器跨语言辨析.md) | 从 NestJS/FastAPI 的 @ 语法引出的跨语言对比 | ★★★ |
+| 17 | [Java 程序生命周期](./17-Java程序生命周期.md) | 编译/运行期 + 类加载六步 + 饿汉单例完整旅程 | ★★★ |
 
 ---
 

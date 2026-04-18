@@ -185,6 +185,85 @@ public class UserService {
 
 ---
 
+## 🔬 进阶：注解接口的方法为什么没有方法体？
+
+如果你仔细看过注解的语法，会发现一个看似矛盾的点：
+
+```java
+public @interface LogExecutionTime {
+    String value();                  // 👈 没方法体！
+    int count() default 1;           // 👈 没方法体！
+}
+```
+
+**方法全都没有方法体**，但你却能正常调用：
+
+```java
+LogExecutionTime anno = method.getAnnotation(LogExecutionTime.class);
+anno.value();   // ✅ 能跑，能返回值
+```
+
+**它到底怎么工作的？**
+
+### 真相 1：接口方法本来就没方法体
+
+Java 接口里的方法**默认是 `abstract`**（Java 8 之前强制，之后仍是默认行为）：
+
+```java
+public interface MyInterface {
+    void doSomething();             // abstract，无方法体
+    int calculate();                 // 同
+}
+```
+
+注解是**特殊接口**（编译器把它看成 `interface Xxx extends java.lang.annotation.Annotation`），遵守同样规则 —— 方法天然无方法体。
+
+### 真相 2：JDK 用动态代理自动生成实现
+
+**你从来没写实现类，但 `.value()` 能调 —— 因为 JDK 运行时动态生成了代理实现**。
+
+```
+你写：                         背后发生：
+@LogExecutionTime("下单")     →  JDK 把 "下单" 存到元数据 Map
+anno = method.getAnnotation() →  JDK 用【动态代理】生成实现类
+                                 (sun.reflect.annotation.AnnotationInvocationHandler)
+anno.value()                  →  代理翻译成"查元数据 Map['value']"
+返回 "下单"                   →  代理返回值
+```
+
+### 验证（能跑的代码）
+
+```java
+@LogExecutionTime("测试")
+void foo() {}
+
+Method m = ...;
+LogExecutionTime anno = m.getAnnotation(LogExecutionTime.class);
+System.out.println(anno.getClass());
+// 输出：class com.sun.proxy.$Proxy4
+//       👆 JDK 运行时动态生成的代理类名字！
+```
+
+### 和 `@Transactional` 是同一套机制
+
+刚才讲过的 `@Transactional` —— Spring 用**动态代理**包装 bean，拦截方法调用做事务。
+
+**注解的 `.value()` 调用**也是一模一样的机制：JDK 用**动态代理**包装注解接口，拦截方法调用做元数据查询。
+
+**同一套"动态代理"机制**在两个地方出现：
+- `@Transactional` → 代理包装**业务对象**
+- 注解属性访问 → 代理包装**注解接口**
+
+学完**代理模式**（第 2 阶段第 3 课）会彻底打通这套知识。
+
+### 📌 小结
+
+> **注解接口的方法没方法体 = 接口方法天然 abstract**。
+> **但能调用 = JDK 自动生成动态代理实现**，把方法调用翻译成元数据查询。
+> **和 Spring `@Transactional` 共享同一套"动态代理"机制**。
+
+---
+
 ## 🛠 第四步：自己实现一个注解（实战）
 
 现在你懂了原理。自己写一个"运行时反射"的注解 —— 这是**自己能实现的最常见方式**。
