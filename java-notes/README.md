@@ -35,6 +35,11 @@
 | 09 | [final 关键字全解](./09-final关键字全解.md) | 建造者 · SubwaySandwich 字段全 final | ★★ |
 | 10 | [工具类设计 & Objects 详解](./10-工具类设计与Objects.md) | 建造者 · Objects.requireNonNull | ★★ |
 | 11 | [集合框架 & 泛型入门](./11-集合框架与泛型.md) | 建造者 · List&lt;String&gt; vegetables | ★★ |
+| 12 | [Java 拷贝全景地图](./12-Java拷贝全景.md) | 原型 · 三层拷贝能力 + 嵌套深拷贝 | ★★★ |
+| 13 | [Record 与现代数据类](./13-Record与现代数据类.md) | 原型/拷贝笔记 · 反复提到 Record 未讲透 | ★★ |
+| 14 | [equals 与 hashCode](./14-equals与hashCode.md) | Record 讨论衍生 · 对象相等性契约 | ★★ |
+| 15 | [Java 注解体系完全指南](./15-Java注解体系完全指南.md) | 从 @Override / @With / @Autowired 的好奇心 | ★★★ |
+| 16 | [注解/装饰器跨语言辨析](./16-注解与装饰器跨语言辨析.md) | 从 NestJS/FastAPI 的 @ 语法引出的跨语言对比 | ★★★ |
 
 ---
 
