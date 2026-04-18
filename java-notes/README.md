@@ -30,6 +30,11 @@
 | 04 | [volatile 与指令重排](./04-volatile与指令重排.md) | 单例 V3 DCL | ★★★ |
 | 05 | [Java 内部类](./05-Java内部类.md) | 单例 V4 静态内部类 | ★★ |
 | 06 | [枚举的本质](./06-枚举的本质.md) | 单例 V5 枚举 | ★★ |
+| 07 | [Override vs Overload + @Override 注解](./07-Override-vs-Overload.md) | 工厂方法 · ChicagoCheesePizza.cut() | ★ |
+| 08 | [标记接口 & Java 序列化](./08-标记接口与Serializable.md) | 建造者 · JavaBean 的 Serializable | ★★ |
+| 09 | [final 关键字全解](./09-final关键字全解.md) | 建造者 · SubwaySandwich 字段全 final | ★★ |
+| 10 | [工具类设计 & Objects 详解](./10-工具类设计与Objects.md) | 建造者 · Objects.requireNonNull | ★★ |
+| 11 | [集合框架 & 泛型入门](./11-集合框架与泛型.md) | 建造者 · List&lt;String&gt; vegetables | ★★ |
 
 ---
 
