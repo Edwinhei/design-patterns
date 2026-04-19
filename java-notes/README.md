@@ -45,6 +45,8 @@
 | 19 | [反射进阶 · Method / Field / Constructor](./19-反射进阶-Method与Field.md) | 反射/动态代理系列 2/4 · 三个核心类详解 | ★★ |
 | 20 | [动态代理（一）· InvocationHandler 设计推演](./20-动态代理一-InvocationHandler设计推演.md) | 反射/动态代理系列 3/4 · 设计思路推演 | ★★★ |
 | 21 | [动态代理（二）· Proxy 工厂 & 实战](./21-动态代理二-Proxy工厂与实战.md) | 反射/动态代理系列 4/4 · 完整流程 + 重试代理 | ★★★ |
+| 22 | [Java Lambda 语法详解](./22-Java-Lambda语法详解.md) | 策略课引出 · 5 种语法变体/函数式接口/方法引用/this 陷阱 | ★★ |
+| 23 | [Runnable & Java 并发入门](./23-Runnable与Java并发入门.md) | 命令课引出 · Runnable/Callable/线程池/vs Thread | ★★ |
 
 ---
 
